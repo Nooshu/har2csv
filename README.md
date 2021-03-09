@@ -16,7 +16,7 @@ $ chmod +x har2csv.jq
 $ chmod +x har2tsv.jq
 
 # Run CSV
-$ ./har2csv.jq input.har > output.tsv
+$ ./har2csv.jq input.har > output.csv
 
 # Run TSV
 $ ./har2tsv.jq input.har > output.tsv
