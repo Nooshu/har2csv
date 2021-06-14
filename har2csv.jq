@@ -1,4 +1,4 @@
-#!/usr/bin/env jq -rMf
+#!/usr/bin/jq -rMf
 
 # Quickly convert a HTTP Archive file (har) to a CSV file.
 
