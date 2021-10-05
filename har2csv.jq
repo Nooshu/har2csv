@@ -13,6 +13,8 @@
   "requestBodySize",
   "responseStatus",
   "responseContentSize",
+  "responseContentSizeCompression",
+  "responseTransferSize",
   "responseContentType",
   "responseContentLength",
   "responseCacheControl",
@@ -23,10 +25,11 @@
   "ssl",
   "send",
   "wait",
-  "receive"
+  "receive",
+  "blockedqueueing"
 ],
   (
-	  # drill down into the entries data
+    # drill down into the entries data
     .log.entries
     # convert object into array and extract the value
     | to_entries[].value
@@ -41,9 +44,11 @@
         .request.bodySize,
         .response.status,
         .response.content.size,
-        (.response.headers[] | select(.name == "content-type").value),
-        (.response.headers[] | select(.name == "content-length").value),
-        (.response.headers[] | select(.name == "cache-control").value),
+        .response.content.compression,
+        .response._transferSize,
+        (.response.headers[] | select(.name | match("content-type";"i")).value),
+        (.response.headers[] | select(.name | match("content-length";"i")).value),
+        (.response.headers[] | select(.name | match("cache-control";"i")).value),
         .time,
         .timings.blocked,
         .timings.dns,
@@ -51,7 +56,8 @@
         .timings.ssl,
         .timings.send,
         .timings.wait,
-        .timings.receive
+        .timings.receive,
+        .timings["_blocked_queueing"]
       ]
 	)
   # output in CSV format
