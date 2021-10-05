@@ -44,6 +44,8 @@ Example using Chrome:
 | request.bodySize  | requestBodySize |
 | response.status  | responseStatus |
 | response.content.size  | responseContentSize |
+| response.content.compression  | responseContentSizeCompression |
+| response.content._transferSize  | responseTransferSize |
 | response.headers.name['content-type']  | responseContentType |
 | response.headers.name['content-length']  | responseContentLength |
 | response.headers.name['cache-control']  | responseCacheControl |
@@ -55,6 +57,7 @@ Example using Chrome:
 | timings.send  | send |
 | timings.wait  | wait |
 | timings.receive  | receive |
+| timings._blocked_queuing  | blockedqueueing |
 
 **Note: Entries that don't match the above fields / paths are not included in the result CSV/TSV files**
 
