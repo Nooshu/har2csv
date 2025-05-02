@@ -1,4 +1,4 @@
-#!/usr/bin/jq -rMf
+#!/usr/bin/env jq -rMf
 
 # Quickly convert a HTTP Archive file (har) to a TSV file.
 
